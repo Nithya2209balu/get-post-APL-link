@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>post request in jsonplaceholder api</title>
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+   
+
+    <form class="container" id="form" autocomplete="off">
+        <input type="text" id="title" placeholder="title" required><br><br>
+        <input type="text" id="body" placeholder="body" required><br><br>
+        <input class="button" type="submit" value="post">
+        </form>
+</body> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    var form= document.getElementById('form')
+
+    form.addEventListener('submit',function(e){
+         e.preventDefault()
+         var title = document.getElementById('title').value 
+         var body = document.getElementById('body').value
+
+         $.post("https://jsonplaceholder.typicode.com/posts",{title:title,body:body}, function(data){
+            console.log(data)
+         })
+    })
+    </script>
+
+
+
+</html>
